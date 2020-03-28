@@ -1,5 +1,5 @@
 import React from "react";
-import "./LogOutPage.css";
+import "./LogOutPage.less";
 import "antd/dist/antd.css";
 import P from "../../Components-Ui/P/P";
 import { Button} from 'antd';
@@ -7,8 +7,8 @@ import { Button} from 'antd';
 class LogOutPage extends React.Component {
   render() {
     return (
-      <div class="wrapper">
-        <div className="login">
+      <div class="containerLogout">
+        <div className="logout">
           <P discription="you are login" strong />
           <br />
          

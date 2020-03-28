@@ -1,5 +1,5 @@
 import React from "react";
-import "./LoginPage.css";
+import "./LoginPage.less";
 import "antd/dist/antd.css";
 import { Input } from "antd";
 import { UserOutlined } from "@ant-design/icons";
@@ -9,7 +9,7 @@ import { Button } from "antd";
 class LoginPage extends React.Component {
   render() {
     return (
-      <div class="wrapper">
+      <div className="containerLogin">
         <div className="login">
           <P discription="please Login" strong />
           <br />

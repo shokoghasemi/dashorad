@@ -1,5 +1,5 @@
 import React from "react";
-import "./Users.css";
+import "./Users.less";
 import "antd/dist/antd.css";
 
 import { Table } from "antd";
@@ -66,8 +66,8 @@ class Users extends React.Component {
   };
   render() {
     return (
-      <div class="wrapper">
-        <div className="login">
+      <div class="containerTable">
+        <div className="table">
           <Table
             columns={columns}
             dataSource={this.state.userData}

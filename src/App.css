@@ -1,21 +1,10 @@
-.Menu {
-  direction: rtl;
+.card{
+  height: 85vh;
+  width: 90%;
+  margin: 3% auto;
+  background: #f0f2f5;
+  border-radius: 5px 5px 5px 5px;
 }
-.Menu > nav {
-  display: inline-block;
-  margin: 2% 2%;
-  padding: 1%;
-}
-.Menu > nav > ul {
-  list-style-type: none;
-}
-.Menu > nav > ul > li > a {
-  color: BLACK;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: cursive;
-}
-.Menu > nav > ul > li > a ::hover {
-  color: rgb(189, 236, 171);
-  font-size: 22px;
+.containerCard{
+  height: 100%;
 }
