@@ -16,7 +16,7 @@ class App extends React.Component {
             <Content>
               <SwitchMenu />
             </Content>
-            <Sider >
+            <Sider className="sider">
               <RouterMenu />
             </Sider>
           </Layout>

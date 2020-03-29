@@ -8,3 +8,9 @@
 .containerCard{
   height: 100%;
 }
+.sider{
+  width: 160px !important;
+  max-width: 160px !important;
+  min-width: 160px !important;
+  background-color: #636e72 !important;
+}

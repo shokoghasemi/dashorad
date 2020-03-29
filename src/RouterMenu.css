@@ -1,0 +1,9 @@
+.list{
+    padding-right:18px;
+    direction: rtl;
+}
+.list a{
+    color: #2d3436;
+    font-weight: bold;
+    font-size: larger;
+}

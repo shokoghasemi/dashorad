@@ -66,7 +66,7 @@ class Users extends React.Component {
   };
   render() {
     return (
-      <div class="containerTable">
+      <div className="containerTable">
         <div className="table">
           <Table
             columns={columns}
