@@ -1,13 +1,12 @@
 import React from "react";
 import "./App.css";
 import "antd/dist/antd.css";
-
 import { Layout } from "antd";
 import { BrowserRouter as Router } from "react-router-dom";
 import RouterMenu, { SwitchMenu } from "./RouterMenu";
 const { Sider, Content } = Layout;
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <div className="card">
@@ -25,5 +24,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;
