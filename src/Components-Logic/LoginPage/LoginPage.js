@@ -2,11 +2,11 @@ import React from "react";
 import "./LoginPage.less";
 import "../../styleless.less";
 import "antd/dist/antd.css";
-import { Input } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import P from "../../Components-Ui/P/P";
 import { Button } from "antd";
-
+import { Input } from "antd";
+import { Alert } from "antd";
 import { connect } from "react-redux";
 import { Login } from "../../redux/actions";
 
@@ -18,17 +18,14 @@ class LoginPage extends React.Component {
       password: ""
     };
   }
-  // onSubmit = e => {
-  //   e.preventDefault();
-  // };
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  Login = (e) => {
+  Login = e => {
     e.preventDefault();
-    if(this.state.name === "admin" && this.state.password === "admin"){
-      console.log("lkhhhhhhhhhhhhhhi")
-      this.props.login()
+    if (this.state.name === "admin" && this.state.password === "admin") {
+      console.log("lkhhhhhhhhhhhhhhi");
+      this.props.login();
     }
   };
   render() {
@@ -36,8 +33,8 @@ class LoginPage extends React.Component {
     console.log("state", this.state);
     return (
       <div className="containerLogin">
-        <div className="login">
-          {/* <form onSubmit={this.onSubmit}> */}
+        {this.props.isLogin !== true ? (
+          <div className="login">
             <P discription="please Login" strong />
             <Input
               className="margin1"
@@ -61,12 +58,20 @@ class LoginPage extends React.Component {
               type="primary"
               shape="round"
               size="large"
-               onClick={this.Login }
+              onClick={this.Login}
             >
               Login
             </Button>
-          {/* </form> */}
-        </div>
+          </div>
+        ) : (
+          <Alert
+            message="you are login"
+            description="To exit the page, click on Logout in the menu."
+            type="success"
+            showIcon
+            closable
+          />
+        )}
       </div>
     );
   }

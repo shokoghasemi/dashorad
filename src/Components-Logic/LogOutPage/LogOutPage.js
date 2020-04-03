@@ -4,13 +4,14 @@ import "../../styleless.less";
 import "antd/dist/antd.css";
 import P from "../../Components-Ui/P/P";
 import { Button } from "antd";
+import { Alert } from "antd";
 import { connect } from "react-redux";
 import { Logout } from "../../redux/actions";
 
 function LogOutPage(props) {
   return (
     <div className="containerLogout">
-    
+      {props.isLogin === true ? (
         <div className="logout">
           <P
             className="margin1"
@@ -30,12 +31,20 @@ function LogOutPage(props) {
             No
           </Button>
         </div>
-      
+      ) : (
+        <Alert
+          message="you are logout"
+          description="To login the page, click on Login in the menu."
+          type="warning"
+          showIcon
+          closable
+        />
+      )}
     </div>
   );
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => state.login;
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(Logout())
 });
