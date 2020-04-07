@@ -10,25 +10,39 @@ import { Alert } from "antd";
 import { connect } from "react-redux";
 import { Login } from "../../redux/actions";
 
-class LoginPage extends React.Component {
-  constructor(props) {
+interface LogState {
+  name: string;
+  password: string;
+}
+interface LogProps {
+  isLogin: boolean;
+}
+class LoginPage extends React.Component<LogProps, LogState>{
+  constructor(props: LogProps) {
     super(props);
     this.state = {
       name: "",
       password: ""
     };
   }
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value }: { value: string } = e.target;
+    this.setState({ name: value});
   };
-  Login = e => {
+  onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value }: { value: string } = e.target;
+    this.setState({ password: value });
+  };
+  Login = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    console.log('click shoooood')
     e.preventDefault();
     if (this.state.name === "admin" && this.state.password === "admin") {
-      console.log("lkhhhhhhhhhhhhhhi");
-      this.props.login();
+      //this.props.login();
+      console.log('name&passord check shod')
     }
   };
   render() {
+    const { name,password }: { name: string,password:string } = this.state;
     console.log(this.props);
     console.log("state", this.state);
     return (
@@ -42,16 +56,16 @@ class LoginPage extends React.Component {
               placeholder="Username"
               prefix={<UserOutlined />}
               name="name"
-              value={this.state.name}
-              onChange={this.onChange}
+              value={name}
+              onChange={(e) => this.onChangeName(e)}
             />
             <Input.Password
               className="margin1"
               size="large"
               placeholder="Password"
               name="password"
-              value={this.state.password}
-              onChange={this.onChange}
+              value={password}
+              onChange={(e) => this.onChangePassword(e)}
             />
             <Button
               className="margin1"
@@ -64,21 +78,21 @@ class LoginPage extends React.Component {
             </Button>
           </div>
         ) : (
-          <Alert
-            message="you are login"
-            description="To exit the page, click on Logout in the menu."
-            type="success"
-            showIcon
-            closable
-          />
-        )}
+            <Alert
+              message="you are login"
+              description="To exit the page, click on Logout in the menu."
+              type="success"
+              showIcon
+              closable
+            />
+          )}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => state.login;
-const mapDispatchToProps = dispatch => ({
+const mapStateToProps = (state:any) => state.login;
+const mapDispatchToProps = (dispatch:any) => ({
   login: () => dispatch(Login())
 });
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

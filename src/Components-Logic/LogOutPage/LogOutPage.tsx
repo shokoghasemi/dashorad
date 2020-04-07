@@ -7,8 +7,10 @@ import { Button } from "antd";
 import { Alert } from "antd";
 import { connect } from "react-redux";
 import { Logout } from "../../redux/actions";
-
-function LogOutPage(props) {
+interface LogProps {
+  isLogin: boolean;
+}
+function LogOutPage(props: LogProps) {
   return (
     <div className="containerLogout">
       {props.isLogin === true ? (
@@ -23,7 +25,7 @@ function LogOutPage(props) {
             type="danger"
             shape="round"
             size="large"
-            onClick={() => props.logout()}
+           // onClick={() => props.logout()}
           >
             Yes
           </Button>
@@ -32,20 +34,20 @@ function LogOutPage(props) {
           </Button>
         </div>
       ) : (
-        <Alert
-          message="you are logout"
-          description="To login the page, click on Login in the menu."
-          type="warning"
-          showIcon
-          closable
-        />
-      )}
+          <Alert
+            message="you are logout"
+            description="To login the page, click on Login in the menu."
+            type="warning"
+            showIcon
+            closable
+          />
+        )}
     </div>
   );
 }
 
-const mapStateToProps = state => state.login;
-const mapDispatchToProps = dispatch => ({
+const mapStateToProps = (state:any) => state.login;
+const mapDispatchToProps = (dispatch:any) => ({ 
   logout: () => dispatch(Logout())
 });
 export default connect(mapStateToProps, mapDispatchToProps)(LogOutPage);

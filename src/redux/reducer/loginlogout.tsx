@@ -1,7 +1,14 @@
+import {Reducer} from "redux"
 import { Log_in, Log_out } from "../actions";
 
-const initState = { isLogin: false, username: "", password: "" };
-export default function login(state = initState, action) {
+ interface ILogState {
+  isLogin: boolean;
+}
+const LogState: ILogState= {
+  isLogin: false,
+}
+
+ const Login:Reducer<ILogState>=(state : ILogState=LogState, action:any) =>{
   switch (action.type) {
     case Log_in:
       return {
@@ -18,3 +25,4 @@ export default function login(state = initState, action) {
       return state;
   }
 }
+export default Login

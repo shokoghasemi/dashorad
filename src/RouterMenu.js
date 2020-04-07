@@ -3,10 +3,10 @@ import "./App.css";
 import "./RouterMenu.css";
 import "antd/dist/antd.css";
 import { connect } from "react-redux";
-import LoginPage from "./Components-Logic/LoginPage/LoginPage";
-import LogOutPage from "./Components-Logic/LogOutPage/LogOutPage";
+import LoginPage from "./Components-Logic/LoginPage/LoginPage.tsx";
+import LogOutPage from "./Components-Logic/LogOutPage/LogOutPage.tsx";
 import Users from "./Components-Logic/Users/Users";
-import Comment from "./Components-Logic/Comment/Comment";
+import Comment from "./Components-Logic/Comment/Comment.js";
 import { BrowserRouter as Route, Switch, Link } from "react-router-dom";
 import { List } from "antd";
 const data = [
@@ -27,7 +27,7 @@ class RouterMenu extends React.Component {
     );
   }
 }
-export function SwitchMenu(props) {
+export function SwitchMenu() {
   return (
     <Switch>
       <Route path="/logout">
